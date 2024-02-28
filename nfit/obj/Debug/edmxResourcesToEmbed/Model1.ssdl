@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="osmotry">
+    <Key>
+      <PropertyRef Name="Id_osmotra" />
+    </Key>
+    <Property Name="Id_osmotra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_pacienta" Type="int" Nullable="false" />
+    <Property Name="Id_vracha" Type="int" Nullable="false" />
+    <Property Name="data_osmotra" Type="date" Nullable="false" />
+    <Property Name="rezult_osmotra" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="rec_vracha" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="diagnoz" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="pacienty">
+    <Key>
+      <PropertyRef Name="Id_pacienta" />
+    </Key>
+    <Property Name="Id_pacienta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fio" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="birthday" Type="date" Nullable="false" />
+    <Property Name="pol" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="nomer_tel" Type="nchar" MaxLength="11" Nullable="false" />
+  </EntityType>
+  <EntityType Name="predpisanya">
+    <Key>
+      <PropertyRef Name="Id_predpisanya" />
+    </Key>
+    <Property Name="Id_predpisanya" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_osmotra" Type="int" Nullable="false" />
+    <Property Name="naznachenie" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dozirovka" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="srok_priema" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="Id_usera" />
+    </Key>
+    <Property Name="Id_usera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="login" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="password" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="role" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="ФИО" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="id_pacienta1" Type="int" />
+  </EntityType>
+  <EntityType Name="vrachi">
+    <Key>
+      <PropertyRef Name="Id_vracha" />
+    </Key>
+    <Property Name="Id_vracha" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fio1" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="staj" Type="int" Nullable="false" />
+    <Property Name="specializaciya" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="nomer_tela" Type="nchar" MaxLength="11" Nullable="false" />
+    <Property Name="photo" Type="nchar" MaxLength="150" />
+  </EntityType>
+  <Association Name="FK_osmotry_ToPacient">
+    <End Role="pacienty" Type="Self.pacienty" Multiplicity="1" />
+    <End Role="osmotry" Type="Self.osmotry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacienty">
+        <PropertyRef Name="Id_pacienta" />
+      </Principal>
+      <Dependent Role="osmotry">
+        <PropertyRef Name="Id_pacienta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_osmotry_ToVrach">
+    <End Role="vrachi" Type="Self.vrachi" Multiplicity="1" />
+    <End Role="osmotry" Type="Self.osmotry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vrachi">
+        <PropertyRef Name="Id_vracha" />
+      </Principal>
+      <Dependent Role="osmotry">
+        <PropertyRef Name="Id_vracha" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_predpisanya_ToOsmotr">
+    <End Role="osmotry" Type="Self.osmotry" Multiplicity="1" />
+    <End Role="predpisanya" Type="Self.predpisanya" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="osmotry">
+        <PropertyRef Name="Id_osmotra" />
+      </Principal>
+      <Dependent Role="predpisanya">
+        <PropertyRef Name="id_osmotra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_users_ToPacient">
+    <End Role="pacienty" Type="Self.pacienty" Multiplicity="0..1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacienty">
+        <PropertyRef Name="Id_pacienta" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="id_pacienta1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ModelContainer">
+    <EntitySet Name="osmotry" EntityType="Self.osmotry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pacienty" EntityType="Self.pacienty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="predpisanya" EntityType="Self.predpisanya" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vrachi" EntityType="Self.vrachi" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_osmotry_ToPacient" Association="Self.FK_osmotry_ToPacient">
+      <End Role="pacienty" EntitySet="pacienty" />
+      <End Role="osmotry" EntitySet="osmotry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_osmotry_ToVrach" Association="Self.FK_osmotry_ToVrach">
+      <End Role="vrachi" EntitySet="vrachi" />
+      <End Role="osmotry" EntitySet="osmotry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_predpisanya_ToOsmotr" Association="Self.FK_predpisanya_ToOsmotr">
+      <End Role="osmotry" EntitySet="osmotry" />
+      <End Role="predpisanya" EntitySet="predpisanya" />
+    </AssociationSet>
+    <AssociationSet Name="FK_users_ToPacient" Association="Self.FK_users_ToPacient">
+      <End Role="pacienty" EntitySet="pacienty" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

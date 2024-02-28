@@ -1,0 +1,78 @@
+﻿<Window x:Class="nfit.raspechpac"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:nfit"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="nfit - Врач" Height="800" Width="1200"
+        MinHeight="800" MinWidth="1200"
+        MaxHeight="800" MaxWidth="1200">
+
+    <Window.Resources>
+        <Style x:Key="RoundedShadowOnlyListBoxStyle1" TargetType="ListBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <Grid>
+                            <Border CornerRadius="20" Background="White" Margin="0,0,-18,0">
+                                <Border.Effect>
+                                    <DropShadowEffect Opacity="0.5" ShadowDepth="5" Direction="270" BlurRadius="45"/>
+                                </Border.Effect>
+                                <ScrollViewer>
+                                    <ItemsPresenter />
+                                </ScrollViewer>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ListBoxItem">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resourses/fonvrach.jpg"/>
+        </Grid.Background>
+        <ListBox x:Name="lb1" Style="{StaticResource RoundedShadowOnlyListBoxStyle1}" HorizontalAlignment="Left" Height="623" Margin="26,88,0,0" VerticalAlignment="Top" Background="White" Width="456" SelectionChanged="lb1_SelectionChanged" FontSize="18">
+            <!--<ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding FullInfo}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>-->
+        </ListBox>
+        <TextBox x:Name="tb1" IsReadOnly="True" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFilledTextBox}" Height="103" Margin="528,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="16"/>
+
+        <Button x:Name="pechat"  HorizontalAlignment="Left" Margin="542,595,0,0" BorderThickness="0" VerticalAlignment="Top" Width="80"  Height="80" FontSize="18" Click="pechat_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="/nfit;component/Resourses/word.png" />
+            </Button.Background>
+        </Button>
+        <Label Content="Выберите пациента :" HorizontalAlignment="Left" Margin="144,35,0,0" VerticalAlignment="Top" Height="36" Width="235" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="Результат_осмотра" Content="Фио пациента :" HorizontalAlignment="Left" Margin="528,79,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
+        <Button x:Name="vyhod"  HorizontalAlignment="Left" Margin="1095,10,0,0" VerticalAlignment="Top" BorderThickness="0" Width="65" Height="65" Click="vyhod_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/nfit;component/Resourses/dom.png" />
+            </Button.Background>
+        </Button>
+        <Label x:Name="в_Copy" Content="домой" HorizontalAlignment="Left" Margin="1103,79,0,0" VerticalAlignment="Top" Height="59" Width="73" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="tb3" IsReadOnly="True" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="528,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="16"/>
+        <Label Content="Номер телефона :" HorizontalAlignment="Left" Margin="528,282,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
+        <Label Content="Распечатать&#xD;&#xA; в Ворде" HorizontalAlignment="Left" Margin="528,675,0,0" VerticalAlignment="Top" Height="84" Width="124" FontSize="20"/>
+        <ComboBox x:Name="combo1" Style="{StaticResource MaterialDesignOutlinedComboBox}" HorizontalAlignment="Left" Margin="528,497,0,0" VerticalAlignment="Top" Width="448" Height="87"/>
+        <Label Content="Выберите дату осмотра :" HorizontalAlignment="Left" Margin="528,444,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
+
+    </Grid>
+</Window>

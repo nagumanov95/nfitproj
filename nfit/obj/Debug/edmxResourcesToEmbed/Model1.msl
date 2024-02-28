@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="osmotry">
+      <EntityTypeMapping TypeName="Model.osmotry">
+        <MappingFragment StoreEntitySet="osmotry">
+          <ScalarProperty Name="Id_osmotra" ColumnName="Id_osmotra" />
+          <ScalarProperty Name="Id_pacienta" ColumnName="Id_pacienta" />
+          <ScalarProperty Name="Id_vracha" ColumnName="Id_vracha" />
+          <ScalarProperty Name="data_osmotra" ColumnName="data_osmotra" />
+          <ScalarProperty Name="rezult_osmotra" ColumnName="rezult_osmotra" />
+          <ScalarProperty Name="rec_vracha" ColumnName="rec_vracha" />
+          <ScalarProperty Name="diagnoz" ColumnName="diagnoz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pacienty">
+      <EntityTypeMapping TypeName="Model.pacienty">
+        <MappingFragment StoreEntitySet="pacienty">
+          <ScalarProperty Name="Id_pacienta" ColumnName="Id_pacienta" />
+          <ScalarProperty Name="fio" ColumnName="fio" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="pol" ColumnName="pol" />
+          <ScalarProperty Name="nomer_tel" ColumnName="nomer_tel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="predpisanya">
+      <EntityTypeMapping TypeName="Model.predpisanya">
+        <MappingFragment StoreEntitySet="predpisanya">
+          <ScalarProperty Name="Id_predpisanya" ColumnName="Id_predpisanya" />
+          <ScalarProperty Name="id_osmotra" ColumnName="id_osmotra" />
+          <ScalarProperty Name="naznachenie" ColumnName="naznachenie" />
+          <ScalarProperty Name="dozirovka" ColumnName="dozirovka" />
+          <ScalarProperty Name="srok_priema" ColumnName="srok_priema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="Model.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="Id_usera" ColumnName="Id_usera" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+          <ScalarProperty Name="id_pacienta1" ColumnName="id_pacienta1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vrachi">
+      <EntityTypeMapping TypeName="Model.vrachi">
+        <MappingFragment StoreEntitySet="vrachi">
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="Id_vracha" ColumnName="Id_vracha" />
+          <ScalarProperty Name="fio1" ColumnName="fio1" />
+          <ScalarProperty Name="staj" ColumnName="staj" />
+          <ScalarProperty Name="specializaciya" ColumnName="specializaciya" />
+          <ScalarProperty Name="nomer_tela" ColumnName="nomer_tela" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

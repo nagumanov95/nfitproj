@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="osmotry">
+          <Key>
+            <PropertyRef Name="Id_osmotra" />
+          </Key>
+          <Property Name="Id_osmotra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_pacienta" Type="int" Nullable="false" />
+          <Property Name="Id_vracha" Type="int" Nullable="false" />
+          <Property Name="data_osmotra" Type="date" Nullable="false" />
+          <Property Name="rezult_osmotra" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="rec_vracha" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="diagnoz" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="pacienty">
+          <Key>
+            <PropertyRef Name="Id_pacienta" />
+          </Key>
+          <Property Name="Id_pacienta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fio" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="birthday" Type="date" Nullable="false" />
+          <Property Name="pol" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nomer_tel" Type="nchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <EntityType Name="predpisanya">
+          <Key>
+            <PropertyRef Name="Id_predpisanya" />
+          </Key>
+          <Property Name="Id_predpisanya" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_osmotra" Type="int" Nullable="false" />
+          <Property Name="naznachenie" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="dozirovka" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="srok_priema" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="Id_usera" />
+          </Key>
+          <Property Name="Id_usera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="role" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="ФИО" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="id_pacienta1" Type="int" />
+        </EntityType>
+        <EntityType Name="vrachi">
+          <Key>
+            <PropertyRef Name="Id_vracha" />
+          </Key>
+          <Property Name="Id_vracha" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fio1" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="staj" Type="int" Nullable="false" />
+          <Property Name="specializaciya" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nomer_tela" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="photo" Type="nchar" MaxLength="150" />
+        </EntityType>
+        <Association Name="FK_osmotry_ToPacient">
+          <End Role="pacienty" Type="Self.pacienty" Multiplicity="1" />
+          <End Role="osmotry" Type="Self.osmotry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacienty">
+              <PropertyRef Name="Id_pacienta" />
+            </Principal>
+            <Dependent Role="osmotry">
+              <PropertyRef Name="Id_pacienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_osmotry_ToVrach">
+          <End Role="vrachi" Type="Self.vrachi" Multiplicity="1" />
+          <End Role="osmotry" Type="Self.osmotry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vrachi">
+              <PropertyRef Name="Id_vracha" />
+            </Principal>
+            <Dependent Role="osmotry">
+              <PropertyRef Name="Id_vracha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_predpisanya_ToOsmotr">
+          <End Role="osmotry" Type="Self.osmotry" Multiplicity="1" />
+          <End Role="predpisanya" Type="Self.predpisanya" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="osmotry">
+              <PropertyRef Name="Id_osmotra" />
+            </Principal>
+            <Dependent Role="predpisanya">
+              <PropertyRef Name="id_osmotra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_users_ToPacient">
+          <End Role="pacienty" Type="Self.pacienty" Multiplicity="0..1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacienty">
+              <PropertyRef Name="Id_pacienta" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="id_pacienta1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="osmotry" EntityType="Self.osmotry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pacienty" EntityType="Self.pacienty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="predpisanya" EntityType="Self.predpisanya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vrachi" EntityType="Self.vrachi" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_osmotry_ToPacient" Association="Self.FK_osmotry_ToPacient">
+            <End Role="pacienty" EntitySet="pacienty" />
+            <End Role="osmotry" EntitySet="osmotry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_osmotry_ToVrach" Association="Self.FK_osmotry_ToVrach">
+            <End Role="vrachi" EntitySet="vrachi" />
+            <End Role="osmotry" EntitySet="osmotry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_predpisanya_ToOsmotr" Association="Self.FK_predpisanya_ToOsmotr">
+            <End Role="osmotry" EntitySet="osmotry" />
+            <End Role="predpisanya" EntitySet="predpisanya" />
+          </AssociationSet>
+          <AssociationSet Name="FK_users_ToPacient" Association="Self.FK_users_ToPacient">
+            <End Role="pacienty" EntitySet="pacienty" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="osmotry">
+          <Key>
+            <PropertyRef Name="Id_osmotra" />
+          </Key>
+          <Property Name="Id_osmotra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_pacienta" Type="Int32" Nullable="false" />
+          <Property Name="Id_vracha" Type="Int32" Nullable="false" />
+          <Property Name="data_osmotra" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="rezult_osmotra" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rec_vracha" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="diagnoz" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="pacienty" Relationship="Self.FK_osmotry_ToPacient" FromRole="osmotry" ToRole="pacienty" />
+          <NavigationProperty Name="vrachi" Relationship="Self.FK_osmotry_ToVrach" FromRole="osmotry" ToRole="vrachi" />
+          <NavigationProperty Name="predpisanya" Relationship="Self.FK_predpisanya_ToOsmotr" FromRole="osmotry" ToRole="predpisanya" />
+        </EntityType>
+        <EntityType Name="pacienty">
+          <Key>
+            <PropertyRef Name="Id_pacienta" />
+          </Key>
+          <Property Name="Id_pacienta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fio" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="pol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nomer_tel" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="osmotry" Relationship="Self.FK_osmotry_ToPacient" FromRole="pacienty" ToRole="osmotry" />
+          <NavigationProperty Name="users" Relationship="Self.FK_users_ToPacient" FromRole="pacienty" ToRole="users" />
+        </EntityType>
+        <EntityType Name="predpisanya">
+          <Key>
+            <PropertyRef Name="Id_predpisanya" />
+          </Key>
+          <Property Name="Id_predpisanya" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_osmotra" Type="Int32" Nullable="false" />
+          <Property Name="naznachenie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dozirovka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="srok_priema" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="osmotry" Relationship="Self.FK_predpisanya_ToOsmotr" FromRole="predpisanya" ToRole="osmotry" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="Id_usera" />
+          </Key>
+          <Property Name="Id_usera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="role" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ФИО" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_pacienta1" Type="Int32" />
+          <NavigationProperty Name="pacienty" Relationship="Self.FK_users_ToPacient" FromRole="users" ToRole="pacienty" />
+        </EntityType>
+        <EntityType Name="vrachi">
+          <Key>
+            <PropertyRef Name="Id_vracha" />
+          </Key>
+          <Property Name="Id_vracha" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fio1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="staj" Type="Int32" Nullable="false" />
+          <Property Name="specializaciya" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nomer_tela" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="osmotry" Relationship="Self.FK_osmotry_ToVrach" FromRole="vrachi" ToRole="osmotry" />
+          <Property Name="photo" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_osmotry_ToPacient">
+          <End Role="pacienty" Type="Self.pacienty" Multiplicity="1" />
+          <End Role="osmotry" Type="Self.osmotry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacienty">
+              <PropertyRef Name="Id_pacienta" />
+            </Principal>
+            <Dependent Role="osmotry">
+              <PropertyRef Name="Id_pacienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_osmotry_ToVrach">
+          <End Role="vrachi" Type="Self.vrachi" Multiplicity="1" />
+          <End Role="osmotry" Type="Self.osmotry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vrachi">
+              <PropertyRef Name="Id_vracha" />
+            </Principal>
+            <Dependent Role="osmotry">
+              <PropertyRef Name="Id_vracha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_predpisanya_ToOsmotr">
+          <End Role="osmotry" Type="Self.osmotry" Multiplicity="1" />
+          <End Role="predpisanya" Type="Self.predpisanya" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="osmotry">
+              <PropertyRef Name="Id_osmotra" />
+            </Principal>
+            <Dependent Role="predpisanya">
+              <PropertyRef Name="id_osmotra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_users_ToPacient">
+          <End Role="pacienty" Type="Self.pacienty" Multiplicity="0..1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacienty">
+              <PropertyRef Name="Id_pacienta" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="id_pacienta1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="osmotry" EntityType="Self.osmotry" />
+          <EntitySet Name="pacienty" EntityType="Self.pacienty" />
+          <EntitySet Name="predpisanya" EntityType="Self.predpisanya" />
+          <EntitySet Name="users" EntityType="Self.users" />
+          <EntitySet Name="vrachi" EntityType="Self.vrachi" />
+          <AssociationSet Name="FK_osmotry_ToPacient" Association="Self.FK_osmotry_ToPacient">
+            <End Role="pacienty" EntitySet="pacienty" />
+            <End Role="osmotry" EntitySet="osmotry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_osmotry_ToVrach" Association="Self.FK_osmotry_ToVrach">
+            <End Role="vrachi" EntitySet="vrachi" />
+            <End Role="osmotry" EntitySet="osmotry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_predpisanya_ToOsmotr" Association="Self.FK_predpisanya_ToOsmotr">
+            <End Role="osmotry" EntitySet="osmotry" />
+            <End Role="predpisanya" EntitySet="predpisanya" />
+          </AssociationSet>
+          <AssociationSet Name="FK_users_ToPacient" Association="Self.FK_users_ToPacient">
+            <End Role="pacienty" EntitySet="pacienty" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="osmotry">
+            <EntityTypeMapping TypeName="Model.osmotry">
+              <MappingFragment StoreEntitySet="osmotry">
+                <ScalarProperty Name="Id_osmotra" ColumnName="Id_osmotra" />
+                <ScalarProperty Name="Id_pacienta" ColumnName="Id_pacienta" />
+                <ScalarProperty Name="Id_vracha" ColumnName="Id_vracha" />
+                <ScalarProperty Name="data_osmotra" ColumnName="data_osmotra" />
+                <ScalarProperty Name="rezult_osmotra" ColumnName="rezult_osmotra" />
+                <ScalarProperty Name="rec_vracha" ColumnName="rec_vracha" />
+                <ScalarProperty Name="diagnoz" ColumnName="diagnoz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pacienty">
+            <EntityTypeMapping TypeName="Model.pacienty">
+              <MappingFragment StoreEntitySet="pacienty">
+                <ScalarProperty Name="Id_pacienta" ColumnName="Id_pacienta" />
+                <ScalarProperty Name="fio" ColumnName="fio" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="pol" ColumnName="pol" />
+                <ScalarProperty Name="nomer_tel" ColumnName="nomer_tel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="predpisanya">
+            <EntityTypeMapping TypeName="Model.predpisanya">
+              <MappingFragment StoreEntitySet="predpisanya">
+                <ScalarProperty Name="Id_predpisanya" ColumnName="Id_predpisanya" />
+                <ScalarProperty Name="id_osmotra" ColumnName="id_osmotra" />
+                <ScalarProperty Name="naznachenie" ColumnName="naznachenie" />
+                <ScalarProperty Name="dozirovka" ColumnName="dozirovka" />
+                <ScalarProperty Name="srok_priema" ColumnName="srok_priema" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="Model.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="Id_usera" ColumnName="Id_usera" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+                <ScalarProperty Name="id_pacienta1" ColumnName="id_pacienta1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vrachi">
+            <EntityTypeMapping TypeName="Model.vrachi">
+              <MappingFragment StoreEntitySet="vrachi">
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="Id_vracha" ColumnName="Id_vracha" />
+                <ScalarProperty Name="fio1" ColumnName="fio1" />
+                <ScalarProperty Name="staj" ColumnName="staj" />
+                <ScalarProperty Name="specializaciya" ColumnName="specializaciya" />
+                <ScalarProperty Name="nomer_tela" ColumnName="nomer_tela" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
