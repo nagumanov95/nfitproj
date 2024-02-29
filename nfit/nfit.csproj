@@ -63,6 +63,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -267,6 +268,10 @@
     <Resource Include="Resourses\fonvrach.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\useric.ico" />
+    <Resource Include="Resources\boln.ico" />
+    <Resource Include="Resources\vrachh.ico" />
+    <Resource Include="Resources\admin.ico" />
     <Resource Include="Resourses\word.png" />
     <Resource Include="Resourses\statfon.jpg" />
     <Resource Include="Resourses\48.gif" />

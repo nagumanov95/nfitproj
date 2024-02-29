@@ -11,7 +11,7 @@
         Title="Статистика посещений пациентами" 
         Height="450" Width="600"
     MinHeight="450" MinWidth="600"
-    MaxHeight="450" MaxWidth="600">
+    MaxHeight="450" MaxWidth="600" Icon="pack://siteoforigin:,,,/Resources/admin.ico">
     <Grid x:Name="grid">
         <Grid.Background>
             <ImageBrush ImageSource="Resourses/statfon.jpg"/>

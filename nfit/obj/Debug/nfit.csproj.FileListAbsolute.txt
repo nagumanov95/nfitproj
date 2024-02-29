@@ -45,7 +45,6 @@ D:\nfit\nfit\obj\Debug\predpisania.g.cs
 D:\nfit\nfit\obj\Debug\predpisania.baml
 D:\nfit\nfit\obj\Debug\vrachiinfa.g.cs
 D:\nfit\nfit\obj\Debug\vrachiinfa.baml
-D:\nfit\nfit\obj\Debug\nfit.csproj.AssemblyReference.cache
 D:\nfit\nfit\obj\Debug\pacinfa.g.cs
 D:\nfit\nfit\obj\Debug\pacinfa.baml
 D:\nfit\nfit\obj\Debug\statistika.g.cs

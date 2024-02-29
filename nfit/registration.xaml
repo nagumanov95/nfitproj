@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="nfit - Регистрация" Height="550" Width="800" Background="White"
-        MinWidth="800" MinHeight="550" MaxWidth="800" MaxHeight="550">
+        MinWidth="800" MinHeight="550" MaxWidth="800" MaxHeight="550" Icon="pack://siteoforigin:,,,/Resources/useric.ico">
     
     <Grid>
         <Grid.Background>
@@ -17,7 +17,7 @@
         </Grid.Background>
         <Image gif:ImageBehavior.RepeatBehavior="100x"
                gif:ImageBehavior.AnimatedSource="Resourses/99.gif"
-               Margin="-188,0,18,0"/>
+               Margin="-244,2,74,-2"/>
         <Border MinWidth="100" Margin="380,31,19,37" Background="#5399f5"  Padding="30" MaxWidth="550" CornerRadius="20">
 
             <Border.Effect>

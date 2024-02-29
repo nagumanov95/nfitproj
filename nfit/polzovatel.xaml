@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="nfit - Пользователь" Height="980" Width="1920"
         MinHeight="980" MinWidth="1920"
-        MaxHeight="980" MaxWidth="1920">
+        MaxHeight="980" MaxWidth="1920" Icon="pack://siteoforigin:,,,/Resources/boln.ico">
 
     <Window.Resources>
         <Style x:Key="RoundedShadowOnlyListBoxStyle1" TargetType="ListBox">
@@ -53,36 +53,36 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>-->
         </ListBox>
-        <TextBox x:Name="tb1" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFilledTextBox}" Height="103" Margin="528,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="16"/>
+        <TextBox x:Name="tb1" HorizontalAlignment="Left" IsReadOnly="True" Style="{StaticResource MaterialDesignFilledTextBox}" Height="103" Margin="528,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="16"/>
         <Label Content="Выберите ваш осмотр:" HorizontalAlignment="Left" Margin="122,29,0,0" VerticalAlignment="Top" Height="54" Width="251" FontSize="20" FontWeight="Bold"/>
         <Label x:Name="Результат_осмотра" Content="Фио :" HorizontalAlignment="Left" Margin="528,79,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
-        <TextBox x:Name="tb5" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="528,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="16"/>
+        <TextBox x:Name="tb5" HorizontalAlignment="Left" IsReadOnly="True" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="528,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="16"/>
         <Label Content="Лечащий врач :" HorizontalAlignment="Left" Margin="528,402,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
-        <Button x:Name="vyhod"  HorizontalAlignment="Left" Margin="1821,12,0,0" VerticalAlignment="Top" BorderThickness="0" Width="65" Height="65" Click="vyhod_Click">
+        <Button x:Name="vyhod"  HorizontalAlignment="Left"  Margin="1821,12,0,0" VerticalAlignment="Top" BorderThickness="0" Width="65" Height="65" Click="vyhod_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/nfit;component/Resourses/vyhod.png" />
             </Button.Background>
         </Button>
         <Label x:Name="в_Copy" Content="Выход" HorizontalAlignment="Left" Margin="1823,77,0,0" VerticalAlignment="Top" Height="59" Width="73" FontSize="14" FontWeight="Bold"/>
-        <TextBox x:Name="tb2" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="1006,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="402" FontSize="16"/>
+        <TextBox x:Name="tb2" HorizontalAlignment="Left" IsReadOnly="True" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="1006,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="402" FontSize="16"/>
         <Label Content="Ваш номер телефона :" HorizontalAlignment="Left" Margin="1006,88,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
-        <DatePicker x:Name="datepic1" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignOutlinedDatePicker}" Margin="528,295,0,0" VerticalAlignment="Top" Height="95" Width="326"/>
+        <DatePicker x:Name="datepic1" IsEnabled="False" HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignOutlinedDatePicker}" Margin="528,295,0,0" VerticalAlignment="Top" Height="95" Width="326"/>
         <Label x:Name="Результат_осмотра_Copy" Content="Дата рождения :" HorizontalAlignment="Left" Margin="528,246,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
-        <TextBox x:Name="tb3" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="1430,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="404" FontSize="16"/>
+        <TextBox x:Name="tb3" HorizontalAlignment="Left" IsReadOnly="True" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="1430,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="404" FontSize="16"/>
         <Label Content="Номер телефона врача :" HorizontalAlignment="Left" Margin="1430,88,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
-        <DatePicker x:Name="datepic2" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignOutlinedDatePicker}" Margin="888,295,0,0" VerticalAlignment="Top" Height="95" Width="326"/>
+        <DatePicker x:Name="datepic2" IsEnabled="False" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignOutlinedDatePicker}" Margin="888,295,0,0" VerticalAlignment="Top" Height="95" Width="326"/>
         <Label x:Name="Результат_осмотра_Copy1" Content="Дата осмотра :" HorizontalAlignment="Left" Margin="888,246,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
-        <TextBox x:Name="tb4" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="1262,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="572" FontSize="16"/>
+        <TextBox x:Name="tb4" HorizontalAlignment="Left" IsReadOnly="True" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="1262,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="572" FontSize="16"/>
         <Label Content="Результат осмотра :" HorizontalAlignment="Left" Margin="1262,246,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
-        <TextBox x:Name="tb6" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="1006,456,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="828" FontSize="16"/>
+        <TextBox x:Name="tb6" HorizontalAlignment="Left" IsReadOnly="True" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="1006,456,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="828" FontSize="16"/>
         <Label Content="Рекомендации врача :" HorizontalAlignment="Left" Margin="1006,402,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
-        <TextBox x:Name="tb7" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="528,620,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="16"/>
+        <TextBox x:Name="tb7" HorizontalAlignment="Left" IsReadOnly="True" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="528,620,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="16"/>
         <Label Content="Диагноз :" HorizontalAlignment="Left" Margin="528,562,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
-        <TextBox x:Name="tb8" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="1006,620,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="16"/>
+        <TextBox x:Name="tb8" HorizontalAlignment="Left" IsReadOnly="True" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="1006,620,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="16"/>
         <Label Content="Назначенные препараты :" HorizontalAlignment="Left" Margin="1006,562,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
-        <TextBox x:Name="tb9" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="528,775,0,-3" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="16"/>
+        <TextBox x:Name="tb9" HorizontalAlignment="Left" IsReadOnly="True" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="528,775,0,-3" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="16"/>
         <Label Content="Дозировка препарата :" HorizontalAlignment="Left" Margin="528,717,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
-        <TextBox x:Name="tb10" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="1006,780,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="16"/>
+        <TextBox x:Name="tb10" HorizontalAlignment="Left" IsReadOnly="True" Style="{StaticResource MaterialDesignFilledTextBox}" Height="97" Margin="1006,780,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="16"/>
         <Label Content="Срок приема препарата :" HorizontalAlignment="Left" Margin="1006,722,0,0" VerticalAlignment="Top" Height="54" Width="326" FontSize="20"/>
         <Border x:Name="imageBorder" Width="285" Height="285" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="1530,580,77,44">
             <Border.Effect>

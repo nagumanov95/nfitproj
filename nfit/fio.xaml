@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen"
         Title="Регистрация" Height="320" Width="420"
         MinHeight="320" MinWidth="420"
-        MaxHeight="320" MaxWidth="420" >
+        MaxHeight="320" MaxWidth="420" Icon="pack://siteoforigin:,,,/Resources/useric.ico" >
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="back.jpg"/>
