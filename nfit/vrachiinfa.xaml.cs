@@ -236,9 +236,9 @@ namespace nfit
                     File.Copy(dlg.FileName, dlg.InitialDirectory + dlg.SafeFileName);
                     lb1.Items.Refresh();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Внимание, возможно фото уже занято!", "Предупреждение загрузки", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Введите корректное значение: " + ex.Message);
                 }
             }
         }
