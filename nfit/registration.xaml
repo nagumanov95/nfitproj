@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="nfit - Регистрация" Height="550" Width="800" Background="White"
-        MinWidth="800" MinHeight="550" MaxWidth="800" MaxHeight="550" Icon="pack://siteoforigin:,,,/Resources/useric.ico">
+        MinWidth="800" MinHeight="550" MaxWidth="800" MaxHeight="550" Icon="Resources/useric.ico">
     
     <Grid>
         <Grid.Background>

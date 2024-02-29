@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="nfit" Height="550" Width="800" Background="White"
-        MinWidth="800" MinHeight="550" MaxWidth="800" MaxHeight="550" Icon="pack://siteoforigin:,,,/Resources/useric.ico">
+        MinWidth="800" MinHeight="550" MaxWidth="800" MaxHeight="550" Icon="Resources/useric.ico">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="back.jpg"/>

@@ -57,3 +57,4 @@ D:\nfit\nfit\bin\Debug\LiveCharts.Wpf.pdb
 D:\nfit\nfit\bin\Debug\LiveCharts.Wpf.xml
 D:\nfit\nfit\obj\Debug\raspechpac.g.cs
 D:\nfit\nfit\obj\Debug\raspechpac.baml
+D:\nfit\nfit\obj\Debug\nfit.csproj.AssemblyReference.cache

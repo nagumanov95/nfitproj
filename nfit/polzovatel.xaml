@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="nfit - Пользователь" Height="980" Width="1920"
         MinHeight="980" MinWidth="1920"
-        MaxHeight="980" MaxWidth="1920" Icon="pack://siteoforigin:,,,/Resources/boln.ico">
+        MaxHeight="980" MaxWidth="1920" Icon="Resources/boln.ico">
 
     <Window.Resources>
         <Style x:Key="RoundedShadowOnlyListBoxStyle1" TargetType="ListBox">

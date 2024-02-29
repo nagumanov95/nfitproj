@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="nfit - Врач" Height="800" Width="1500"
         MinHeight="800" MinWidth="1500"
-        MaxHeight="800" MaxWidth="1500" Icon="pack://siteoforigin:,,,/Resources/vrachh.ico">
+        MaxHeight="800" MaxWidth="1500" Icon="Resources/vrachh.ico">
 
     <Window.Resources>
         <Style x:Key="RoundedShadowOnlyListBoxStyle1" TargetType="ListBox">
