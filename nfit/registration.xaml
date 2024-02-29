@@ -16,7 +16,7 @@
             <ImageBrush ImageSource="back.jpg"/>
         </Grid.Background>
         <Image gif:ImageBehavior.RepeatBehavior="100x"
-               gif:ImageBehavior.AnimatedSource="Resourses/48.gif"
+               gif:ImageBehavior.AnimatedSource="Resourses/99.gif"
                Margin="-188,0,18,0"/>
         <Border MinWidth="100" Margin="380,31,19,37" Background="#5399f5"  Padding="30" MaxWidth="550" CornerRadius="20">
 
